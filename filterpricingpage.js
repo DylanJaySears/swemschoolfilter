@@ -2,11 +2,11 @@
     $(document).ready(function(){
         var hideButtonsFor = ['Clinics and Certifications','Camp'];
 
-        const loadingImgTag = `<div class="loading-loader text-center"><img id="loaderImg" src="https://bafybeif5s2ylscpk4hzu7wl22rwt72vxty3aefbsqoijuphspm3vkvczsm.ipfs.dweb.link/52102-searching.gif">
+        const loadingImgTag = `<div class="loading-loader text-center">
         <div class="text-center"><h5 class="search-text">Please wait while we search for classes...</h5></div>
         </div>`;
 
-        const noDataImgTag = `<div class="text-center no-data-div"><img class="no-data-img" src="https://bafybeiaaqzfmhgwhpbo2dzpx7ayqsqd57bn3wfmfw3bvk7uhe25bc23l3m.ipfs.dweb.link/no-swimming.png"> <h6 class="no-data-txt">No available classes</h6><p class="text-center empty-text">Please search for available classes</div>`;
+        const noDataImgTag = `<div class="text-center no-data-div"> <h6 class="no-data-txt">No available classes</h6><p class="text-center empty-text">Please search for available classes</div>`;
 
         function setMinHeight(){
             const isMobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()))
@@ -155,7 +155,7 @@
         });
 
 
-        $(".pricing-card").click(function(e){
+        $(".class-screen-cards").click(function(e){
             const html = $(this).html();
             const isYouth = html.includes("Youth") ? true : false
             const isAdult = html.includes("Adult") ? true : false
@@ -163,7 +163,11 @@
             const isClinicsandCertifications = html.includes("Clinics and Certifications") ? true : false
             const isToddler = html.includes("Toddler") ? true : false
             const isCamp = html.includes("Camp") ? true : false
-            const isprivateandsemiprivateclasses = html.includes("Private and Semi - Private Classes") ? true : false
+            const isSeniorClasses = html.includes("Senior Classes") ? true : false
+            const isLapSwim = html.includes("Lap Swim") ? true : false
+            const isPrivateandSemiPrivateClasses = html.includes("Private and Semi Private Classes") ? true : false
+            const isSwemTeam = html.includes("Swem Team") ? true : false
+            
             if (isYouth) {
                 $("#CMS-Select").val("Youth");
             } else if (isAdult) {
@@ -176,8 +180,14 @@
                 $("#CMS-Select").val("Toddler");
             } else if (isCamp) {
                 $("#CMS-Select").val("Camp");
-            } else if (isprivateandsemiprivateclasses) {
-                $("#CMS-Select").val("Private and Semi - Private Classes");
+            } else if (isSeniorClasses) {
+                $("#CMS-Select").val("Senior Classes");
+            } else if (isLapSwim) {
+                $("#CMS-Select").val("Lap Swim");
+            } else if (isPrivateandSemiPrivateClasses) {
+                $("#CMS-Select").val("Private and Semi Private Classes");
+            } else if (isSwemTeam) {
+                $("#CMS-Select").val("Swem Team");
             }
 
             callApi()
@@ -186,13 +196,13 @@
             $("a[filter-by='all']").addClass("fltr-active");
             $("#CMS-Select-3 #All input").prop("checked", true);
             $("body").append(`<div class="styleCss"></div>`);
-            $(".page-section").hide();
+            $(".section-5").hide();
             e.preventDefault();
             e.stopPropagation();
             return false;
         });
 
-        $("body").append('<a id="scroll-top"><img src="https://bafybeihycc5uzx3qx7x5etylpqj4sgnbyrxqjof5nvunptt7skwjwdvifm.ipfs.dweb.link/Vector.png" /></a>');
+        $("body").append('<a id="scroll-top"><img src="https://i.ibb.co/mzgRgpc/noun-back-to-top-1590837-FFFFFF.png" /></a>');
 
         var btn = $('#scroll-top');
 
